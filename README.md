@@ -1,4 +1,5 @@
 # exons2tbl.pl usage
+### usage: perl exons2tbl.pl genes-exon-info.txt proteins.product.tsv > genes-exon-info.tbl
 
 Input file 1:
 $ head genes-exon-info.txt
