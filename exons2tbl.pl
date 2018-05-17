@@ -2,6 +2,8 @@
 use strict;
 use warnings;
 
+### usage: perl exons2tbl.pl genes-exon-info.txt proteins.product.tsv > genes-exon-info.tbl
+
 open GENEPOS, $ARGV[0] || die $!;
 open PRODUCT, $ARGV[1] or die $!;
 
