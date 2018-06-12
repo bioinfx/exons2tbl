@@ -1,9 +1,37 @@
-#!/home/fenglei/local/bin/perl
+#!/usr/local/bin/perl
 use warnings;
 use strict;
 
-# usage: perl tRNAscan-to-tbl.pl tRNAscan-SE_prediction.txt tRNA-product.tsv tRNA_result.tbl
+# usage: perl tRNAscan-to-tbl.pl tRNAscan-SE_prediction.txt anticodon-database.tsv tRNA_result.tbl
 # fengleiluck@gmail.com 2018-06-07
+
+####  example of tRNAscan-SE_prediction.txt ####
+#Please note (due to the simulation of a circular input sequence by GeSeq)
+#tRNA predictions outside the range of the submitted sequence might be displayed.
+#For details please refer to our Documentation.
+#
+#Sequence                tRNA    Bounds  tRNA    Anti    Intron Bounds   Inf           
+#Name            tRNA #  Begin   End     Type    Codon   Begin   End     Score   Note
+#--------        ------  -----   ------  ----    -----   -----   ----    ------  ------
+#DNA           1       11407   11478   Arg     TCT     0       0       63.8
+#DNA           2       30019   30089   Cys     GCA     0       0       64.7
+#DNA           3       34347   34418   Thr     GGT     0       0       65.9
+
+#### example of anticodon-database.tsv ####
+#DNA     Codon   Anticodon       AminoAcid       Symbol  Fullname
+#TTT     UUU     AAA     Phe     F       Phenylalanine
+#TTC     UUC     GAA     Phe     F       Phenylalanine
+#TTA     UUA     UAA     Leu     L       Leucine
+#TTG     UUG     CAA     Leu     L       Leucine
+#CTT     CUU     AAG     Leu     L       Leucine
+#CTC     CUC     GAG     Leu     L       Leucine
+#CTA     CUA     UAG     Leu     L       Leucine
+#CTG     CUG     CAG     Leu     L       Leucine
+#ATT     AUU     AAU     Ile     I       Isoleucine
+#ATC     AUC     GAU     Ile     I       Isoleucine
+#ATA     AUA     UAU     Ile     I       Isoleucine
+#ATG     AUG     CAU     Met     M       Methionine
+
 
 open TRNASCAN, $ARGV[0] or die $!;
 open PRODUCTS, $ARGV[1] or die $!;
